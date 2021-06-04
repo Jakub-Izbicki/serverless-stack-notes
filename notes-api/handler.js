@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 export const hello = async (event, context) => {
   return {
     statusCode: 200,
@@ -9,6 +11,6 @@ export const hello = async (event, context) => {
 
 const message = ({ time, ...rest }) => new Promise((resolve, reject) =>
   setTimeout(() => {
-    resolve(`${rest.copy} (with a delay)`);
+    resolve(`${rest.copy} (with a delay) ${uuid()}`);
   }, time * 1000)
 );
